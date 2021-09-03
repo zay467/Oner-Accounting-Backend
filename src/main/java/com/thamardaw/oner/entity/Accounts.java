@@ -8,6 +8,7 @@ import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name = "Accounts")
@@ -50,4 +51,7 @@ public class Accounts {
 
     @Column
     private Timestamp updatedTime;
+
+    @OneToMany(mappedBy = "accounts")
+    private List<LedgerEntry> ledgerentries;
 }

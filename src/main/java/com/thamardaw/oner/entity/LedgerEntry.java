@@ -1,5 +1,6 @@
 package com.thamardaw.oner.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,7 +36,7 @@ public class LedgerEntry {
     @Column
     private long credit;
 
-    @Fetch(FetchMode.JOIN)
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "accountsId")
     private Accounts accounts;
