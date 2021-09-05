@@ -21,7 +21,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 CorsConfiguration config = new CorsConfiguration();
                 config.setAllowedHeaders(Collections.singletonList("*"));
                 config.setAllowedMethods(Collections.singletonList("*"));
-                config.addAllowedOrigin("*");
+                config.addAllowedOriginPattern("*");
                 config.setAllowCredentials(true);
                 return config;
             }
