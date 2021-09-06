@@ -1,2 +1,7 @@
-package com.thamardaw.oner.repository;public class PatientRepository {
+package com.thamardaw.oner.repository;
+
+import com.thamardaw.oner.entity.Patient;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PatientRepository extends JpaRepository<Long, Patient> {
 }
