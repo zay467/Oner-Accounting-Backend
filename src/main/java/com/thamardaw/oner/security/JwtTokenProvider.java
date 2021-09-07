@@ -30,7 +30,7 @@ public class JwtTokenProvider {
         secretKey = Base64.getEncoder().encodeToString(secretKey.getBytes());
     }
 
-    public String createToken(String userName,String password){
+    public String createToken(String userName){
         Claims claims = Jwts.claims().setSubject(userName);
         Date now = new Date();
         Date validity = new Date(now.getTime() + validityInMillisecond);
