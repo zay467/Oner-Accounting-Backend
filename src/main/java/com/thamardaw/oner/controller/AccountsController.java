@@ -53,11 +53,11 @@ public class AccountsController {
         }
         Optional<Category> categoryOptional = categoryRepository.findById(request.getCategory_id());
         if (categoryOptional.isEmpty()){
-            return new ResponseEntity<>("Category doesn't exit.",HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Category doesn't exist.",HttpStatus.NOT_FOUND);
         }
         Optional<AccountType> accountTypeOptional = accountTypeRepository.findById(request.getAccount_type_id());
         if (accountTypeOptional.isEmpty()){
-            return new ResponseEntity<>("Account Type doesn't exit.",HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Account Type doesn't exist.",HttpStatus.NOT_FOUND);
         }
         Accounts accounts = accountsOptional.get();
         Category category = categoryOptional.get();
