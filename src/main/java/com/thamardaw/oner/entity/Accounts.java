@@ -3,6 +3,8 @@ package com.thamardaw.oner.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -28,6 +30,7 @@ public class Accounts {
     @Column
     private String description;
 
+    @Fetch(FetchMode.JOIN)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoryId")
     private Category category;
@@ -35,6 +38,7 @@ public class Accounts {
     @Column(insertable = false,updatable = false)
     private Long categoryId;
 
+    @Fetch(FetchMode.JOIN)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "accountTypeId")
     private AccountType accountType;

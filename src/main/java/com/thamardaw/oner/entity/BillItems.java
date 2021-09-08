@@ -3,6 +3,8 @@ package com.thamardaw.oner.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 
@@ -18,6 +20,7 @@ public class BillItems {
     @Column
     private long id;
 
+    @Fetch(FetchMode.JOIN)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "billId")
     private Bill bill;
@@ -25,6 +28,7 @@ public class BillItems {
     @Column(insertable = false,updatable = false)
     private Long billId;
 
+    @Fetch(FetchMode.JOIN)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "patientServiceUsedId")
     private PatientServiceUsed patientServiceUsed;

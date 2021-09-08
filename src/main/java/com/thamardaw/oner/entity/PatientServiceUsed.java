@@ -3,6 +3,8 @@ package com.thamardaw.oner.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -18,6 +20,7 @@ public class PatientServiceUsed {
     @Column
     private long id;
 
+    @Fetch(FetchMode.JOIN)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "serviceItemId")
     private ServiceItem serviceItem;
@@ -25,6 +28,7 @@ public class PatientServiceUsed {
     @Column(insertable = false,updatable = false)
     private long serviceItemId;
 
+    @Fetch(FetchMode.JOIN)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "patientId")
     private Patient patient;
