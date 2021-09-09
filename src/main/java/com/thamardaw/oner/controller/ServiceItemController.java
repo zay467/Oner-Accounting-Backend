@@ -62,7 +62,7 @@ public class ServiceItemController {
         serviceItem.setUpdatedUserId(user.getId());
         serviceItem.setUpdatedTime(new Timestamp(System.currentTimeMillis()));
         serviceItemRepository.save(serviceItem);
-        return ResponseEntity.ok(serviceItem);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

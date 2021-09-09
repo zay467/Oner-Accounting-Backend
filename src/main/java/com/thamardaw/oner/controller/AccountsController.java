@@ -69,7 +69,7 @@ public class AccountsController {
         accounts.setAccountType(accountType);
         accounts.setUpdatedTime(new Timestamp(System.currentTimeMillis()));
         accountsRepository.save(accounts);
-        return ResponseEntity.ok(accounts);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

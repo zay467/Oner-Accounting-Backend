@@ -61,7 +61,7 @@ public class LedgerEntryController {
         ledgerEntry.setAccounts(accounts);
         ledgerEntry.setUpdatedTime(new Timestamp(System.currentTimeMillis()));
         ledgerEntryRepository.save(ledgerEntry);
-        return ResponseEntity.ok(ledgerEntry);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

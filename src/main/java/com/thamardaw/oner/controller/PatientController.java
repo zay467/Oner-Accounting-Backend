@@ -65,7 +65,7 @@ public class PatientController {
         patient.setUpdatedUserId(user.getId());
         patient.setUpdatedTime(new Timestamp(System.currentTimeMillis()));
         patientRepository.save(patient);
-        return ResponseEntity.ok(patient);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

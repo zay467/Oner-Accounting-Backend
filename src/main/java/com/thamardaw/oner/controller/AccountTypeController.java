@@ -48,7 +48,7 @@ public class AccountTypeController {
         accountType.setDescription(request.getDescription());
         accountType.setUpdatedTime(new Timestamp(System.currentTimeMillis()));
         accountTypeRepository.save(accountType);
-        return ResponseEntity.ok(accountType);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

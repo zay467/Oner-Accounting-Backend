@@ -65,13 +65,12 @@ public class DepositController {
         Patient patient = patientOptional.get();
         Deposit deposit = depositOptional.get();
         deposit.setPatient(patient);
-        deposit.setPatientId(patient.getId());
         deposit.setStatus(request.getStatus());
         deposit.setAmount(request.getAmount());
         deposit.setUpdatedUserId(user.getId());
         deposit.setUpdatedTime(new Timestamp(System.currentTimeMillis()));
         depositRepository.save(deposit);
-        return ResponseEntity.ok(deposit);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

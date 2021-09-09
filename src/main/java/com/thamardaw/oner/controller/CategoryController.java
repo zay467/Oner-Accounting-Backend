@@ -46,7 +46,7 @@ public class CategoryController {
         category.setDescription(request.getDescription());
         category.setUpdatedTime(new Timestamp(System.currentTimeMillis()));
         categoryRepository.save(category);
-        return ResponseEntity.ok(category);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
