@@ -1,5 +1,6 @@
 package com.thamardaw.oner.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,6 +31,7 @@ public class Accounts {
     @Column
     private String description;
 
+    @JsonIgnore
     @Fetch(FetchMode.JOIN)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoryId")
@@ -38,6 +40,7 @@ public class Accounts {
     @Column(insertable = false,updatable = false)
     private Long categoryId;
 
+    @JsonIgnore
     @Fetch(FetchMode.JOIN)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "accountTypeId")

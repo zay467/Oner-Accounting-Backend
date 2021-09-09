@@ -37,6 +37,7 @@ public class LedgerEntry {
     private long credit;
 
     @JsonIgnore
+    @Fetch(FetchMode.JOIN)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "accountsId")
     private Accounts accounts;
